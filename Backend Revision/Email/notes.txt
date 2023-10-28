@@ -1,0 +1,23 @@
+
+# INDEX.js
+npm init -y
+
+touch index.js
+
+npm i nodemailer
+
+https://ethereal.email/create
+
+
+
+# sendgrid.js
+
+npm i @sendgrid/mail
+https://signup.sendgrid.com/
+
+
+
+
+# brevo.js
+
+npm i @getbrevo/brevo
