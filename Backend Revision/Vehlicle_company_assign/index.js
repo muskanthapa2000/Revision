@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 // const {ItemModel} = require("./modules/item.module")
 const itemRoute = require("./router/item")
 const vehicleRoute = require("./router/vehicle")
+const signupRoute = require("./router/signup")
 
 const app = express();
 app.use(express.json());
