@@ -5,6 +5,8 @@ const mongoose = require("mongoose")
 const itemRoute = require("./router/item")
 const vehicleRoute = require("./router/vehicle")
 const signupRoute = require("./router/signup")
+const loginRoute = require("./router/login")
+
 
 const app = express();
 app.use(express.json());
@@ -15,6 +17,8 @@ app.use(express.json());
 
 app.use("/" , itemRoute)
 app.use("/" , vehicleRoute)
+app.use("/" , signupRoute)
+app.use("/" , loginRoute)
 
 
 app.listen(8000 , async(req , res)=>{

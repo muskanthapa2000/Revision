@@ -1,9 +1,10 @@
 const express = require("express")
 const router = express.Router();
 const {ItemModel} = require("../modules/item.module")
+const {authentication} = require("../middleware/middleware")
 
 
-router.get("/items", async (req, res) => {
+router.get("/items",authentication , async (req, res) => {
     try {
       const data = await ItemModel.find();
       res.status(200).json(data);

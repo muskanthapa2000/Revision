@@ -1,19 +1,23 @@
-
 const express = require("express");
 const router = express.Router();
-const {SignupModel} = require("../modules/signup.module")
+
+const {userModel} = require("../modules/User.module")
+
+const bcrypt = require('bcrypt');
 
 
-router.post("/signup", async(req , res)=>{
-    const {name , email , password} = req.body;
-    try {
-        const data = await SignupModel.create({name , email , password})
-        res.status(200).json({message : "signup successfull" , data})
-    }
-    catch (err){
-        res.send({message : "found error" , err})
-    }
+router.post("/signup" , async(req , res)=>{
+    const {name , email , password } = req.body;
 
+    bcrypt.hash(password, 4, async function (err, hash) {
+        if (err) {
+            res.send("Error while signup");
+        }
+        else {
+            const user = await userModel.create({name , email , password : hash });
+         res.send(user);
+        }
+    });
 })
 
-module.exports = router; 
+module.exports = router;
