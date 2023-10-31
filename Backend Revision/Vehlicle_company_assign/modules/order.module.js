@@ -37,18 +37,18 @@ const orderSchema = new Schema({
 const OrderModel = mongoose.model('Order', orderSchema);
 
 
-// orderSchema.pre('save', async function (next) {
-//     if (this.isNew) {
-//       const lastOrder = await Order.findOne({}, {}, { sort: { orderNumber: -1 } });
-//       if (lastOrder) {
-//         const lastOrderNumber = parseInt(lastOrder.orderNumber, 10);
-//         const newOrderNumber = (lastOrderNumber + 1).toString().padStart(4, '0');
-//         this.orderNumber = newOrderNumber;
-//       } else {
-//         this.orderNumber = '0001';
-//       }
-//     }
-//     next();
-//   });
+orderSchema.pre('save', async function (next) {
+    if (this.isNew) {
+      const lastOrder = await Order.findOne({}, {}, { sort: { orderNumber: -1 } });
+      if (lastOrder) {
+        const lastOrderNumber = parseInt(lastOrder.orderNumber, 10);
+        const newOrderNumber = (lastOrderNumber + 1).toString().padStart(4, '0');
+        this.orderNumber = newOrderNumber;
+      } else {
+        this.orderNumber = '0001';
+      }
+    }
+    next();
+  });
 
 module.exports = {OrderModel};
