@@ -8,7 +8,7 @@ router.get("/vehicles", async (req, res) => {
       const data = await VehicleModel.find();
       res.status(200).json(data);
     } catch (error) {
-      console.error("Error while fetching items:", error);
+      console.log("Error while fetching items:", error);
       res.status(500).json({ error: "Internal Server Error" });
     }
   });

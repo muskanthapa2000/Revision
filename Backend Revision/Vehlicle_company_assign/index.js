@@ -6,6 +6,8 @@ const itemRoute = require("./router/item")
 const vehicleRoute = require("./router/vehicle")
 const signupRoute = require("./router/signup")
 const loginRoute = require("./router/login")
+const orderRoute = require("./router/order")
+const customerRoute = require("./router/customer")
 
 
 const app = express();
@@ -19,6 +21,8 @@ app.use("/" , itemRoute)
 app.use("/" , vehicleRoute)
 app.use("/" , signupRoute)
 app.use("/" , loginRoute)
+app.use("/" , orderRoute)
+app.use("/" , customerRoute)
 
 
 app.listen(8000 , async(req , res)=>{

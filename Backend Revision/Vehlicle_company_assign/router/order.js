@@ -1,26 +1,24 @@
-// Step 1: Create a Delivery Vehicle (Already Implemented)
-
-// Step 2: Fetch List of Delivery Vehicles (Already Implemented)
-
-// Step 3: Create an Order (Updated)
 const express = require("express");
+
 const router = express.Router();
 const {OrderModel} = require("../modules/order.module")
-const { VehicleModel } = require("../modules/vehicle.module");
-const { CustomerModel } = require("../modules/customer.module");
+const {CustomerModel} = require("../modules/customer.module")
+const {VehicleModel} = require("../modules/vehicle.module")
 
-router.get("/orders", async (req, res) => {
-    try {
-      const data = await VehicleModel.find();
-      res.status(200).json(data);
-    } catch (error) {
-      console.error("Error while fetching items:", error);
-      res.status(500).json({ error: "Internal Server Error" });
+
+
+router.get("/order" , async(req , res)=>{
+    try{
+        const data = await OrderModel.find().populate("itemId").populate("customerId").populate("deliveryVehicleId");
+        res.send({message : "data received" , data})
+    } catch (error){
+        console.log("Error while fetching items:", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-  });
+})
 
-// POST request to create orders based on matching city criteria
-router.post("/orderpost", async (req, res) => {
+
+router.post("/order/add", async (req, res) => {
     try {
         const { isDelivered, deliveryVehicleId, orderNumber, itemId, price, customerId } = req.body;
 
@@ -34,7 +32,7 @@ router.post("/orderpost", async (req, res) => {
         const deliveryVehicle = await VehicleModel.findOne({ city: customerCity, activeOrdersCount: { $lt: 2 } });
 
         if (!deliveryVehicle) {
-            return res.status(400).json({ error: "No suitable delivery vehicle available." });
+            return res.status(400).json({ error: "No delivery vehicle available." });
         }
 
         // Create the order
@@ -75,7 +73,7 @@ router.put("/order/delivered/:orderId", async (req, res) => {
         await order.save();
 
         // Decrement the activeOrdersCount of the associated delivery vehicle
-        const deliveryVehicle = await DeliveryVehicleModel.findById(order.deliveryVehicleId);
+        const deliveryVehicle = await VehicleModel.findById(order.deliveryVehicleId);
         if (deliveryVehicle) {
             deliveryVehicle.activeOrdersCount--;
             await deliveryVehicle.save();
