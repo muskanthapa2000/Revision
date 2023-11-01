@@ -28,13 +28,25 @@ router.post("/order/add", async (req, res) => {
         }
 
         const customer = await CustomerModel.findById(customerId);
+
         const customerCity = customer.city;
-        const deliveryVehicle = await VehicleModel.findOne({ city: customerCity, activeOrdersCount: { $lt: 2 } });
 
-        if (!deliveryVehicle) {
-            return res.status(400).json({ error: "No delivery vehicle available." });
+        const vehicleeee = await VehicleModel.findById(deliveryVehicleId);
+        const vehicleeeeCity = vehicleeee.city;
+        const deliveryVehicle = await VehicleModel.findOne({ _id: deliveryVehicleId, activeOrdersCount: { $lt: 2 } });
+
+        if (customerCity !==vehicleeeeCity )
+        {
+            return res.status(400).json({ error: "delivery vehicle city not matched" });
         }
+        else if (!deliveryVehicle) {
+            return res.status(400).json({ error: "No delivery vehicle available." });
+        } 
 
+     
+        
+
+      
         // Create the order
         const newOrder = new OrderModel({
             orderNumber,
