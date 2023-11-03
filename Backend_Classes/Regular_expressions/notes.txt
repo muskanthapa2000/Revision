@@ -1,0 +1,22 @@
+### **What are Regular Expression Flags?**
+
+Flags or modifiers are characters that enable advanced search features including case-insensitive and global searching. You can use them individually or collectively. Some commonly used ones are:
+
+- `g` is used for global search which means the search will not return after the first match.
+- `i` is used for case-insensitive search meaning that a match can occur regardless of the casing.
+- `m` is used for multiline search.
+- `u` is used for Unicode search.
+
+
+. -> any single character  return true or false 
+.. -> any plural character 
+ + -> one or more repetation of previous character
+^ -> string startes with character  /^x/ the starting startes with x character 
+$ -> string ends with character /&x/ the string ends with c character   
+[0-9] -> character between 0 to 9 will place their 
+? - > The question mark symbol `?` matches **zero or one occurrence** of the pattern left to it.
+{} -> Consider this code: `{n,m}`. This means at least `n`, and at most `m` repetitions of the pattern left to it.
+**`|`** **- Alternation** -> Vertical bar `|` is used for alternation (`or` operator).
+**`()`** **- Group** -> Parentheses `()` is used to group sub-patterns. For example, `(a|b|c)xz` match any string that matches either `a` or `b` or `c` followed by `xz`
+**`\`** **- Backslash**-> Backslash `\` is used to escape various characters including all metacharacters. For example, `\$a` match if a string contains `$` followed by `a`. Here, `$` is not interpreted by a RegEx engine in a special way.
+
