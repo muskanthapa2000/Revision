@@ -1,0 +1,34 @@
+
+start with redix with installing it 
+
+https://try.redis.io/
+
+# command to run on installed server 
+1st terminal -> redis-server 
+2nd terminal ->  redis-cli 
+ set age 21 ......
+
+
+
+# STRING 
+
+SET age 21 // data post 
+GET age // get data 
+INCR age // increase age by 1 (Number store in string only)
+DECR age // decrease age by 1 (Number store in string only)
+INCRBY age 3
+DEL age // delete the data 
+EXISTS age // check key exists or not 
+APPEND // use to add more string 
+MGET // get multiple data 
+MSET // set multiple value 
+
+
+
+# ARRAY 
+LRANGE // to get data 
+LPUSH // add data at starting  [0 -1] display all data 
+RPUSH // add data at the end 
+LLEN // length of list 
+
+
