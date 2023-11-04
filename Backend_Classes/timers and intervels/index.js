@@ -24,7 +24,7 @@ console.log("x");
 // micro task queue -> take more priority and run immidate (promises , process.nextTick)
 
 //  # NODE JS CORE CONCEPTS 
-// 
+
 
 setTimeout(()=>{
     console.log("m")
