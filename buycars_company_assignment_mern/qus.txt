@@ -1,0 +1,32 @@
+Case Implementation: www.buycars.com (BUYC Corp)
+Attryb Tech Private Limited
+Bhive Workspace, 27th Main Rd, HSR Sector-2, Bangalore, KA-560102
+Context and Background
+BUYC Corp is a marketplace for second-hand cars. Dealers list their inventory of second-hand cars on buycars.com. Buyers can look at the inventory and buy the car from buycars.com.
+Terminology:
+• Original Equipment Manufacturers (OEM) – These are the car manufacturers (like Honda, Maruti, BMW, Audi, etc.)
+• Car Dealers: They buy second-hand cars and then sell them to end users
+• Marketplace: This is a marketplace where dealers are selling, and end consumers are buying. Dealers are using the product specifications given by the OEMs
+Original Equipment Manufacturers Specifications:
+• To make life easier for the dealers, BUYC lists all major Original Equipment Manufacturers (OEM) OEM specs on their portal
+• The specs are stored in a table OEM_Specs
+• These include the name of the model, Year of Model, list price of the new vehicle, available colors, mileage as advertised by the manufacturer, Power (in BHP), Max Speed
+• Dealers can search for this information in the table (For example, they can search for Honda City 2015) and get all the OEM Specs
+Inventory-Related Information:
+• Dealers can add their own information from their inventory
+• This information is stored in Marketplace_Inventory table
+• The Marketplace_Inventory table includes information like KMs on Odometer, Major Scratches, Original Paint, Number of accidents reported, Number of previous buyers, Registration Place
+Low Level Design and API Creation
+• Phase I – Create a frontend app in React (2-3 hours)
+o Create a Signup, login Screen for the user authentication.
+o Create a page where Dealer can add their second-hand car details with specifications.
+▪ Car details page will have Image, Title, and 5 bullet point description of the page
+o Create filters on Price, Colors, and Mileage.
+o Create a page where Dealer can see all the second-hand car, also dealer can delete multiple second-hand car entries and can edit any car details.
+• Phase II - Improve this specification to make it concrete for junior engineering team (Time: 25-30 mins)
+o Design the Tables and Schemas
+o Create these tables (and any other required table) with dummy data
+• Phase III - Implement the APIs (1-2 hours)
+o Create API to query the number of OEM models available
+o Create an API to search for Honda City 2015 OEM specs
+o Use Python (Django/Flask)/PHP/ Node to create the backend and use a DB of your choice
