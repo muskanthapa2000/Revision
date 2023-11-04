@@ -30,5 +30,82 @@ LRANGE // to get data
 LPUSH // add data at starting  [0 -1] display all data 
 RPUSH // add data at the end 
 LLEN // length of list 
+RENAME ket new_key_name 
 
 
+
+
+# object 
+
+const user ={
+    name : "muskan",
+    age : "24",
+    role : ""BE
+}
+
+HSET user name muskan age 24 role BE // to add data 
+HGETALL // to view data 
+
+
+### What are key-value databases?
+
+# When it comes to databases, there are two major categories:
+
+- SQL Databases
+- NoSQL Databases
+
+The conventional SQL databases, or stores, consist of data in tables. Each table has a title and columns that define the contents of their corresponding rows. The tables together form a schema, and the database is also known as RDBMS, short for Relational Database Management System. The table rows can consist of a unique primary key and a foreign key referenced from another table in the schema.
+
+NoSQL databases, or non-relational databases, differ from SQL databases because there are no tables, primary, or foreign keys to support, so there are no relationships that connect one table to another. The key value store is a type of NoSQL database that acts as a sort of dictionary. In the case of the department store, the unique product ID would be the key that will contain other details such as title, price, quantity, etc.
+
+
+## What Is a Cache?
+
+In computer science, a cache is a storage location used to temporarily store data used by servers, apps, and browsers to speed load times. Depending on where you look for them, almost any machine, be it software or hardware, will have and use a kind of cache.
+
+### What Is Cached Data?
+
+Cached data is information stored in a specific location used to speed up gathering and transferring data. In the case of a website, the cache would allow you to load certain resources without downloading them from the server every time you access the page, like fonts or icons.
+
+For servers, cached data can be dynamic data saved as simple HTML to speed up the page load time.
+
+### Examples of Caches
+
+Depending on your use case, you might utilize one of these caches:
+
+### **Web Browser Cache**
+
+This storage is done in the browser. All browsers have a local storage that they use to retrieve previously accessed resources. This cache is private since stored resources are not shared. Browsers cache data such as entire web pages to speed up the loading times.
+
+### **Server Cache**
+
+A server cache is similar to a browser cache, only that it keeps data server-side instead of saving it locally. It’s often used to save database queries to avoid running memory and CPU-intensive tasks for popular queries. Server-cached data includes dynamically created web pages, database queries API responses and more.
+
+Others are→
+
+1. Proxy cache
+2. Application cache
+3. gateway cache
+
+### How Does the Cache Work?
+
+Copies of data are stored in designated locations, either locally or on the server. This saves resources trying to run difficult queries on databases or those loading large images from the server every time a website loads.
+
+Browsers will check these locations before requesting the resource from the server, and if it’s found, it will be loaded from the cache instead of having it downloaded, which would be significantly slower.
+
+# What is Redis
+
+Redis is a NoSQL database that follows the principle of key-value storage. The key-value store provides the ability to store some data called a value, inside a key. You can receive this data later only if you know the exact key used to store it.
+
+Redis is a flexible, open-source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker. Redis is a NoSQL database so it facilitates users to store huge amounts of data without the limitations of a Relational database.
+
+Redis supports various types of data structures like strings, hashes, lists, sets, sorted sets, bitmaps, hyper loglogs, and geospatial indexes with radius queries.
+
+## **Redis Advantages**
+
+Following are certain advantages of Redis.
+
+- **Exceptionally fast** − Redis is very fast and can perform about 110000 SETs per second, and about 81000 GETs per second.
+- **Supports rich data types** − Redis natively supports most of the datatypes that developers already know such as list, set, sorted set, and hashes. This makes it easy to solve a variety of problems as we know which problem can be handled better by which data type.
+- **Operations are atomic** − All Redis operations are atomic, which ensures that if two clients concurrently access, the Redis server will receive the updated value.
+- **Multi-utility tool** − Redis is a multi-utility tool and can be used in a number of use cases such as caching, messaging queues (Redis natively supports Publish/Subscribe), any short-lived data in your application, such as web application sessions, web page hit counts, etc.
