@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// ............................................. var .........................................
+        // function scope-> When a variable is declared inside a function, it is only accessible within that function and cannot be used outside that function. 
+
+        const data =()=>{
+            var m = "aaa";
+            console.log(m);
+        }
+         data();
+        // console.log(m); // print only within the function 
+        console.log(a); // print undefined can be access before initalization 
+        var a = "muskan"; // var can be reassigned and redeclared 
+        var a = "thapa";
+        a = "vishu";
+
+        console.log(a);
+
+
+
+// ............................................. let .........................................
+        //  block scope -> A variable when declared inside the if or switch conditions or inside for or while loops, are accessible within that particular condition or loop. 
+        const dd = (love = true) => {
+            if (love) {
+                var n = "aaa";
+                console.log(n);
+            }
+            }
+
+        dd();
+        
+        // console.log(name); // shows error cannot access before initalization 
+        let name = "muskan"; // let can be reassigned but not redeclared 
+        name = "thapa";
+
+        console.log(name);
+
+
+
+
+// ............................................. const .........................................
+         //  block scope 
+        //  console.log(b) // shows error cannot access before initalization  
+        const b = "muskan";// const can not be reassigned and redeclared 
+        // b = "aa";
+        console.log(b)
+
+
+
+    </script>
+</body>
+</html>
+
