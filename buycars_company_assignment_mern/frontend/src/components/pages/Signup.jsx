@@ -30,7 +30,7 @@ export default function Signup() {
       <input type="text" placeholder='enter email' value = {newUser.email} onChange={handleChange} name = "email"/>
       <input type="text" placeholder='enter password' value = {newUser.password}  onChange={handleChange} name = "password"/>
       <input type="text" placeholder='enter city' value = {newUser.city} onChange={handleChange} name = "city"/>
-      <button onSubmit={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
 
     </div>
   )

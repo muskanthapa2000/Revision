@@ -1,8 +1,9 @@
-import { SIGNUP } from "../actionType";
+import { LOGIN, SIGNUP } from "../actionType";
 
 
 const initialState = {
-    signupData : []
+    signupData : [],
+    loginData : []
 }
 
 const userReducer =(state = initialState , action)=>{
@@ -12,6 +13,12 @@ const userReducer =(state = initialState , action)=>{
             ...state, 
             signupData : action.payload
         }
+
+    case LOGIN : 
+    return {
+        ...state,
+        loginData : action.payload
+    }
   
     default:
         return state;

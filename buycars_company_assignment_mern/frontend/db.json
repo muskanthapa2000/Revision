@@ -6,6 +6,20 @@
       "email": "typicode",
       "password": "json-server",
       "city": "typicode"
+    },
+    {
+      "name": "aa",
+      "email": "aa",
+      "password": "aa",
+      "city": "aa",
+      "id": 2
+    },
+    {
+      "name": "aa",
+      "email": "aa",
+      "password": "aa",
+      "city": "aa",
+      "id": 3
     }
   ]
 }

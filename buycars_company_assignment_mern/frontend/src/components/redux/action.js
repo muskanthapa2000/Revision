@@ -1,4 +1,4 @@
-import { SIGNUP } from "./actionType";
+import { LOGIN, SIGNUP } from "./actionType";
 import axios from 'axios';
 
 
@@ -21,4 +21,23 @@ export const SignupDataSuccess =  (newUser)=>async (dispatch)=>{
     }
   
 
+}
+
+
+export const loginSuccess =(payload)=>{
+    return{
+            type : LOGIN,
+            payload : payload
+    }
+}
+
+export const loginDataSuccess =(dispatch)=>{
+   try {
+        axios.post(`http://localhost:3000/userDetail`).then((res)=>{
+            dispatch(loginSuccess(res.data))
+            console.log(res.data);
+        })
+   } catch (error) {
+        console.log(error);
+   }
 }
