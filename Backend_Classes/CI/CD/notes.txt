@@ -1,0 +1,34 @@
+
+
+npm i eslint
+npm init @eslint/config  -> .eslintrc file created.
+command for terminal :npx eslint index.js 
+npx eslint index.js --fix // fic the error
+
+........................................................................................
+# terminal options 
+
+$ npm init @eslint/config
+Need to install the following packages:
+  @eslint/create-config
+Ok to proceed? (y) y
+√ How would you like to use ESLint? · style
+√ What type of modules does your project use? · commonjs
+√ Which framework does your project use? · none
+√ Does your project use TypeScript? · No / Yes
+√ Where does your code run? · browser
+√ How would you like to define a style for your project? · guide
+√ Which style guide do you want to follow? · standard
+? What format do you want your config file to be in? ...
+> JavaScript
+  YAML
+√ What format do you want your config file to be in? · JavaScript
+Checking peerDependencies of eslint-config-standard@latest
+Local ESLint installation not found.
+The config that you've selected requires the following dependencies:
+
+eslint-config-standard@latest eslint@^8.0.1 eslint-plugin-import@^2.25.2 eslint-plugin-n@^15.0.0 || ^16.0.0  eslint-plugin-promise@^6.0.0
+√ Would you like to install them now? · No / Yes
+√ Which package manager do you want to use? · npm
+
+..............................................................

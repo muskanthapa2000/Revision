@@ -29,6 +29,8 @@ app.get("/goldrate", async (req, res) => {
     });
 });
 
+// upsert = is used to update present data if data not present it will insert the new one. 
+
 // Update Gold Rate
 app.patch("/goldrate/add", async (req, res) => {
     try {

@@ -1,0 +1,14 @@
+
+# monitoring -> to keep eyes on something 
+    npm install -g pm2
+    pm2 start index.js // shows the cpu used 
+
+
+# logging -> try to keep the record / printing somewhere (console.log()) // works for level (info , warn ,err )
+liberary -> moregen , log4js , pino , bunya ...... 
+
+
+
+npm i winston 
+npm i express-winston@2.6.0
+npm i winston-mongodb
