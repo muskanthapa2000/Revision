@@ -1,7 +1,8 @@
-import { GET_PRODUCT, POST_PRODUCT } from "../actionType";
+import { EDIT_PRODUCT, EDIT_PRODUCT_DETAIL, GET_PRODUCT, POST_PRODUCT } from "../actionType";
 
 const initialState ={
-    productData : []
+    productData : [],
+    editDetail : {}
 }
 
 const productReducer =(state = initialState , action)=>{
@@ -17,6 +18,18 @@ const productReducer =(state = initialState , action)=>{
             ...state,
             productData: [...state.productData, action.payload]
           };
+
+          case EDIT_PRODUCT : 
+          return {
+            ...state,
+            productData : action.payload
+          }
+
+          case EDIT_PRODUCT_DETAIL : 
+          return {
+            ...state , 
+            editDetail : action.payload
+          }
 
     
         default:

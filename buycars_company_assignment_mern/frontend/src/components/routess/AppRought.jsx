@@ -14,7 +14,7 @@ export default function AppRought() {
         <Route path="/login" element ={<Login/>}></Route>
         <Route path="/signup" element ={<Signup/>}></Route>
         <Route path="/addproduct" element ={<AddProducts/>}></Route>
-        <Route path="/editproduct" element ={<EditProduct/>}></Route>
+        <Route path="/editproduct/:id" element ={<EditProduct/>}></Route>
       </Routes>
     </div>
   )

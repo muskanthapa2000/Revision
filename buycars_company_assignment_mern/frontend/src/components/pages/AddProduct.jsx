@@ -41,7 +41,7 @@ console.log(formdata)
   const handlesubmit =(e)=>{
         e.preventDefault();
             dispatch(postProductSuccess(formdata))
-            dispatch(getProductSuccess())
+            dispatch(getProductSuccess)
   }
 
   return (
