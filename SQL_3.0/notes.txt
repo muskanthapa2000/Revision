@@ -1,0 +1,36 @@
+SQL - STRUCTORED QUERY LANGUAGE (PROGRAMMING LANGUAGE) ,TYPES (MYSQL , POSTGRESS , MARIADB)
+
+    MYSQL - DATABASE FOLLOWING THE SQL 
+    
+
+    NOSQL - THE DATABSE NOT FOLLOE=WING THE SQL STRUCTORE (THIS IS NOT A DATABASE NOT A PROGRAMMING LANGUAGE), 
+    DATABASE TYPES : (DOCUMENT(ex -MONGODB) , GRAPH(ex-CASSENDRA) , VICTOR(ex-PINECONE), used for artifical intelligency)
+
+
+
+
+FOR MYSQL SCREEN : create database name_of_database (create)
+                    drop database name_of_database (delete)
+                    use name_of_database (craete schema)
+
+                    create table customers (  (tables ===collections)
+                        id int primery key auto_increment,          
+                        name varchar(50),
+                        email varchar(50) unique(for unique id) not null(required),
+                        age int,
+                    );
+                            varchar = string 
+                            bool/boolena = boolean 
+                            int = number 
+                            BIGINT = large no
+                            DATE = date 
+
+                    insert into customers (name , age , email) 
+                    values ("muskan" , 24 , "muskan@gmail.com),
+                            ("muskan" , 24 , "muskan@gmail.com) (data insert)
+                    select * from customers (used to read the data) or select name from customers (to read single row)
+                    select * from customers where name = "muskan" (filter)
+                     select * from customers where name like "%mu%" (name in which this letter is present)
+
+
+
