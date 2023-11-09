@@ -5,30 +5,11 @@ import { editProductSuccess  , getEditProductDetail, getProductSuccess } from '.
 
 
 export default function EditProduct() {
-  // const [formdata , setFormData] = useState({
-  //   name: '',
-  //   title: '',
-  //   year: '',
-  //   price: '',
-  //   mileage: '',
-  //   power: '',
-  //   speed: '',
-  //   image: '',
-  //   colorred: false,
-  //   colorgreen: false,
-  //   colorblack: false,
-  //   colorwhite: false,
-  //   colorblue: false,
-  //   bulletpoint1: '',
-  //   bulletpoint2: '',
-  //   bulletpoint3: '',
-  //   bulletpoint4: '',
-  //   bulletpoint5: '',
-  // });
+
   
   const {id} = useParams();
   console.log(id);
-  // const selector = useSelector((store)=> store.product.productData)
+
   const editDetail = useSelector((store) => store.product.editDetail);
   const [formdata, setFormData] = useState(editDetail);
   console.log(editDetail);

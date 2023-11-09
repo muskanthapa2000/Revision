@@ -1,4 +1,4 @@
-    import { EDIT_PRODUCT, EDIT_PRODUCT_DETAIL, GET_PRODUCT, GET_USER_LOGIN, LOGIN, POST_PRODUCT, SIGNUP } from "./actionType";
+    import { EDIT_PRODUCT, EDIT_PRODUCT_DETAIL, GET_PRODUCT, GET_USER_LOGIN, LOGIN, MILEAGE_FILTER, POST_PRODUCT, PRICE_FILTER, SIGNUP } from "./actionType";
     import axios from 'axios';
 
 
@@ -35,7 +35,8 @@
                     dispatch({
                         type : GET_USER_LOGIN,
                         payload : res.data
-                    });
+                    })
+                    
                     console.log(res.data);
             })
         } catch (error) {
@@ -45,12 +46,19 @@
 
 
 
-    export const getProductSuccess =()=>async(dispatch)=>{
+    export const getProductSuccess =(priceFilter , colorFilter , mileageFilter)=>async(dispatch)=>{
         try {
-            await axios.get(`http://localhost:3000/Product`)
+            const filterPriceData = priceFilter ? `&_sort=price&_order=${priceFilter}` : "";
+            const colorFilterData = colorFilter ? `=${colorFilter}` : "";
+            const mileageFilterData = mileageFilter ?`&_sort=mileage&_order=${mileageFilter}` : ""
+            await axios.get(`http://localhost:3000/Product?${filterPriceData}${mileageFilterData}`)
             .then((res)=>{
                 dispatch({
                     type : GET_PRODUCT,
+                    payload : res.data
+                })
+                dispatch({
+                    type : MILEAGE_FILTER,
                     payload : res.data
                 })
                 console.log(res.data);

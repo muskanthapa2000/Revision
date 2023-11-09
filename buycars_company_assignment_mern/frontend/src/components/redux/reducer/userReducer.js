@@ -1,4 +1,4 @@
-import { GET_USER_LOGIN, LOGIN, SIGNUP } from "../actionType";
+import { GET_USER_LOGIN, LOGIN, PRICE_FILTER, SIGNUP } from "../actionType";
 
 
 const initialState = {
@@ -25,6 +25,8 @@ const userReducer =(state = initialState , action)=>{
             ...state,
             signupData : action.payload
         }
+
+ 
   
     default:
         return state;

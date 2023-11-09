@@ -1,4 +1,4 @@
-import { EDIT_PRODUCT, EDIT_PRODUCT_DETAIL, GET_PRODUCT, POST_PRODUCT } from "../actionType";
+import { EDIT_PRODUCT, EDIT_PRODUCT_DETAIL, GET_PRODUCT, POST_PRODUCT, PRICE_FILTER } from "../actionType";
 
 const initialState ={
     productData : [],
@@ -30,7 +30,6 @@ const productReducer =(state = initialState , action)=>{
             ...state , 
             editDetail : action.payload
           }
-
     
         default:
             return state;
