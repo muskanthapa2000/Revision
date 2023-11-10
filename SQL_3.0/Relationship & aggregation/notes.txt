@@ -1,0 +1,3 @@
+select count(*) from from customers  (calculare total no of element) (aggrigate)
+
+

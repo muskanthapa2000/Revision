@@ -32,5 +32,14 @@ FOR MYSQL SCREEN : create database name_of_database (create)
                     select * from customers where name = "muskan" (filter)
                      select * from customers where name like "%mu%" (name in which this letter is present)
 
+                    update customers  (for update)
+                    set name = "ankur"
+                    where id =2
+
+                    delete customers where id = 1; (delete data )
+
+                    select * from customers order by name asc; --asc/desc (asc sorting)
+                    select * from customers order by name desc; --asc/desc (desc sorting)
+
 
 
