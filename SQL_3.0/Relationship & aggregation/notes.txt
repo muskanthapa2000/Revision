@@ -1,3 +1,48 @@
-select count(*) from from customers  (calculare total no of element) (aggrigate)
+
+COMMAND of aggrigate: 
+
+        select count(*) from from students  (calculare total no of element) ;
+        select AVG(score) as AVERAGE_SCORE from students;
+        // SUM , MIN , MAX 
+        select Place from studenst GROUP BY Place (unique place in data)
+        select Plcae , COUNT(*) from students GROUP BY Place (no of student at onr city) // AVG
+               
+               
+                ORDER :- SELECT - WHERE -GROUP BY - HAVING - ORDER BY 
+
+        select Place , AVG (Score) from studenst GROUP BY Place HAVING AVG (Score)>86 (find places where avg in >86)
 
 
+................................... terminal code ................................
+
+ create database studentsData;
+ use studentsData;
+CREATE TABLE Students(
+	name VarChar (50),
+    email VarChar (100),
+    id INT PRIMARY KEY auto_increment,
+    score INT,
+    place VarChar(100)
+);
+INSERT INTO Students (name, email , score , place)
+values ("Muskan" , "muskan@gami.com" , 86 , "ludhiana"),
+ ("a" , "a.com" , 76 , "a"),
+ ("b" , "b@gami.com" , 56 , "b"),
+ ("c" , "c@gami.com" , 96 , "c"),
+ ("d" , "d@gami.com" , 56 , "d"),
+ ("e" , "e@gami.com" , 88 , "e"),
+ ("f" , "f@gami.com" , 99 , "f");
+ 
+  select count(*) from students;
+  select AVG(score) as AVERAGE_SCORE from students;
+  select SUM(score) as AVERAGE_SCORE from students;
+  select MIN(score) as AVERAGE_SCORE from students;
+  select MAX(score) as AVERAGE_SCORE from students;
+  select place , COUNT(*) from students GROUP BY place;
+  select place , AVG (score) from students GROUP BY place HAVING AVG (Score)>86
+ 
+............................................................................................................
+
+RELATIONSHIP :-
+
+        

@@ -36,10 +36,10 @@ FOR MYSQL SCREEN : create database name_of_database (create)
                     set name = "ankur"
                     where id =2
 
-                    delete customers where id = 1; (delete data )
+                    delete  from customers where id = 1; (delete data )
 
-                    select * from customers order by name asc; --asc/desc (asc sorting)
-                    select * from customers order by name desc; --asc/desc (desc sorting)
+                    select * from customers order by name asc; (asc sorting)
+                    select * from customers order by name desc;  (desc sorting)
 
 
 
