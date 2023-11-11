@@ -1,0 +1,3 @@
+npm init -y
+ npm i express sequelize mysql2 sequelize-cli
+ npx  sequelize-cli init
