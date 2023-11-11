@@ -44,5 +44,29 @@ values ("Muskan" , "muskan@gami.com" , 86 , "ludhiana"),
 ............................................................................................................
 
 RELATIONSHIP :-
+        JOIN/ INNER JOIN 
+                select * from Students (combine both tables data )
+                JOIN Courses ON 
+                Students.CourseID = Coruses.id;
+
+        LEFT JOIN 
+                select * from Students (SHOW COMBINE DATA WHERE STUDENT HAVE EMPTY COUSER)
+                LEFT Courses ON 
+                Students.CourseID = Coruses.id;
+
+        RIGHT JOIN 
+                select * from Students  (SHOW COMBINE DATA WHERE COUSER HAVE EMPTY STUDENT)
+                RIGHT Courses ON 
+                Students.CourseID = Coruses.id;   
+
+                select Courses.name , AVG(Students.score) from Students  (average score of syudent in each couses)
+                JOIN Courses
+                ON Students.CourseID = Courses.id
+                GROUP BY Students.CourseID;
+
+        SELF JOIN : REGULAR JOIN (JOINS ITSELF)
+                select * from Students 
+                JOIN Courses ON 
+                Students.CourseID = Coruses.id;
 
         
