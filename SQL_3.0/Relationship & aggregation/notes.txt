@@ -68,5 +68,60 @@ RELATIONSHIP :-
                 select * from Students 
                 JOIN Courses ON 
                 Students.CourseID = Coruses.id;
+................................................terminal...........................
 
-        
+        create database nxm301;
+use nxm301;
+
+create table Courses (
+	id INT PRIMARY KEY auto_increment,
+    name varchar(50)
+);
+
+INSERT INTO Courses ( name)
+VALUES ("MUSKAN"),
+("VISHU"),
+("HARSH"),
+("VAISHALI"),
+("SUSHANT");
+
+ update Courses set name = "BCA" where id =1;
+ update Courses set name = "BCA" where id =2;
+ update Courses set name = "BCA" where id =3;
+ update Courses set name = "BBA" where id =4;
+ update Courses set name = "BCOM" where id =5;
+ select * from Courses;
+ 
+ create table Students (
+	id int primary key auto_increment,
+    name varchar(100),
+    email varchar (100),
+    score float, 
+    place varchar(100),
+    courseID int, 
+    FOREIGN KEY(courseID) REFERENCES Courses(id )
+ );
+ INSERT INTO Students (name, email, score,place, courseID)
+ VALUES ("MUSKAN" , "MUSKAN@GMAIL.COM" , 85.5 , "LUDHIANA", 1),
+		("a" , "a@GMAIL.COM" , 80.5 , "a", 2),
+        ("b" , "b@GMAIL.COM" , 70.5 , "b", 1),
+        ("c" , "c@GMAIL.COM" , 66 , "c", 1),
+        ("d" , "d@GMAIL.COM" , 44.5 , "d", 2),
+        ("e" , "e@GMAIL.COM" , 99 , "e", 2);
+
+		INSERT INTO Students (name, email, score,place, courseID)
+ VALUES ("abc" , "abc@GMAIL.COM" , 85.5 , "LUDHIANA", 4);
+INSERT INTO Students (name, email, score,place)
+ VALUES ("sushant" , "sushant@GMAIL.COM" , 85.5 , "LUDHIANA");
+ 
+ select * from Courses;
+ select * from Students;
+                 select * from Students 
+                JOIN Courses ON 
+                Students.courseID = Courses.id;
+                
+              select * from Students LEFT JOIN Courses ON Students.courseID = Courses.id;
+               select * from Students RIGHT JOIN Courses ON Students.courseID = Courses.id;
+
+
+...................................................................................................
