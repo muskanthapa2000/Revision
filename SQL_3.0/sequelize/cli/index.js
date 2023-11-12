@@ -16,6 +16,18 @@ app.get("/students" , async(req , res)=>{
             res.send(error);
         }
 })
+// app.get("/students" , async(req , res)=>{
+//     try {
+//         courses.hasMany(students , {foreignKey : "courseID"});
+//         students.belongsTo(courses , {foreignKey : "courseID"})
+//         const data = await students.findAll({
+//             include : [courses]
+//         });
+//         res.send(data);
+//     } catch (error) {
+//         res.send(error);
+//     }
+// })
 
 app.get("/students/:search" , async(req , res)=>{
     try {
