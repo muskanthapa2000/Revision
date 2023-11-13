@@ -464,10 +464,62 @@ const sessionData = sessionStorage.getItem('theme');
 console.log('Session Storage Data:', sessionData);
 
 
-//    .................................................useCallback hook.. .....................
+//    .................................................useCallback hook..........................
 The useCallback hook in React is used to memoize functions, similar to how useMemo is used to memoize values. It's particularly helpful in scenarios where you want to avoid the recreation of functions on each render, especially when passing functions as props to child components.
 When a function is defined inside a functional component, it is recreated on every render. If this function is passed down as a prop to child components, it can trigger unnecessary re-renders in those child components. useCallback addresses this issue by memoizing the function and only recreating it when its dependencies change.
 
 const memoizedCallback = useCallback(() => {
   // function body
 }, [dependencies]);
+
+
+//    ........................................ Event loop ..........................
+
+The event loop is a fundamental concept in the asynchronous programming model, and it is especially important in JavaScript. It is the mechanism that allows JavaScript to handle multiple tasks concurrently without blocking the execution of the program. The event loop is an integral part of the JavaScript runtime environment.
+Here's a high-level overview of how the event loop works:
+
+Call Stack:
+The JavaScript runtime maintains a call stack, which is a data structure that keeps track of the execution context of functions (where the program is in its execution).
+Execution:
+When a function is called, its execution context is pushed onto the call stack, and the function's code is executed.
+Asynchronous Operations:
+JavaScript supports asynchronous operations, such as setTimeout, AJAX requests, and event handlers. When an asynchronous operation is encountered, it is offloaded to the browser's APIs (or similar mechanisms in other environments), and the JavaScript engine continues to execute the remaining synchronous code.
+Callback Queue:
+When an asynchronous operation completes, a callback function is placed in the callback queue.
+Event Loop:
+The event loop continuously checks the call stack and the callback queue. If the call stack is empty, it takes the first function from the callback queue and pushes it onto the call stack for execution.
+console.log('Start');
+setTimeout(() => {
+  console.log('Timeout callback');
+}, 1000);
+
+console.log('End');
+
+//    ........................................ What is prop Drilling .............................
+
+Prop drilling (also known as "threading props" or "passing props down the component tree") is a situation in React where you need to pass data through several layers of nested components in order to get it to a deeply nested child component. It occurs when you have data at the top level of your component tree that needs to be accessed by a component deep down in the tree.
+
+//    ........................................ What is  Virtual Dom?.............................
+
+The Virtual DOM (Document Object Model) is a concept used in web development and, more specifically, in the context of front-end libraries and frameworks like React. It is a representation of the actual DOM in the form of a virtual copy or tree structure in memory.
+Here's how the Virtual DOM works:
+Real DOM:
+The browser's Document Object Model (DOM) represents the structure of a web page as a tree of objects, where each object corresponds to an element on the page (like div, p, span, etc.).
+Virtual DOM:
+The Virtual DOM is a lightweight, in-memory representation of the actual DOM. It's a JavaScript object that mimics the structure of the real DOM.
+React and Reconciliation:
+In React, when the state of a component changes, a new Virtual DOM tree is created, representing the updated state.
+React then performs a process called reconciliation, where it compares the new Virtual DOM with the previous one to identify the differences (known as the "diffing" process).
+The differences are computed efficiently, and a minimal set of changes needed to update the real DOM is determined.
+Update to the Real DOM:
+Instead of updating the entire real DOM, React only makes the necessary changes based on the computed differences.
+This approach is more efficient than directly manipulating the real DOM for every state change, as updating the real DOM can be a costly operation in terms of performance.
+
+The Virtual DOM provides several benefits:
+Efficiency:
+By reducing the number of direct manipulations to the real DOM, the Virtual DOM improves the overall performance of the application.
+Abstraction:
+Developers can work with the Virtual DOM as if it were the real DOM, and React takes care of efficiently updating the actual DOM.
+Reusability:
+The Virtual DOM enables the creation of reusable components in React. When a component's state changes, a new Virtual DOM is created, making it easier to manage the state of the entire application.
+While the Virtual DOM is a concept commonly associated with React, other front-end libraries and frameworks also leverage similar techniques to optimize DOM manipulation and improve application performance. The idea is to minimize the direct interaction with the expensive real DOM operations whenever possible.
