@@ -15,5 +15,6 @@ SUB-QUERY :
 
 
 
+
 ---> rollback : will remove all the data 
      commit : will stop remove data to rollback (till this point everything is correct)
