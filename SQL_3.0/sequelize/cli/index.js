@@ -16,18 +16,7 @@ app.get("/students" , async(req , res)=>{
             res.send(error);
         }
 })
-// app.get("/students" , async(req , res)=>{
-//     try {
-//         courses.hasMany(students , {foreignKey : "courseID"});
-//         students.belongsTo(courses , {foreignKey : "courseID"})
-//         const data = await students.findAll({
-//             include : [courses]
-//         });
-//         res.send(data);
-//     } catch (error) {
-//         res.send(error);
-//     }
-// })
+
 
 app.get("/students/:search" , async(req , res)=>{
     try {
@@ -49,8 +38,8 @@ app.get("/students/:search" , async(req , res)=>{
 
 app.post("/students/add" , async (req , res)=>{
     try {
-        const {name , email , age , couseID}= req.body;
-        const data = await students.create({name , email , age , couseID});
+        const {name , email , age , courseID}= req.body;
+        const data = await students.create({name , email , age , courseID});
         res.send(data)
     } catch (error) {
         res.send(error);
@@ -70,17 +59,27 @@ app.put("/students/update/:id" ,async (req , res)=>{
 })
 
 
-app.put("/students/delete/:id" ,async (req , res)=>{
+app.delete("/students/delete/:id", async (req, res) => {
     try {
-       const data = await students.destroy({
-        id : req.params.id,
-        ...req.body
-       })
-       res.send(data);
+        const id = req.params.id;
+        const result = await students.destroy({
+            where: {
+                id: id
+            }
+        });
+
+        if (result === 1) {
+            // Student deleted successfully
+            res.status(200).send({ message: 'Student deleted successfully.' });
+        } else {
+            // No student found with the given ID
+            res.status(404).send({ message: 'Student not found.' });
+        }
     } catch (error) {
-       res.send(error); 
+        res.status(500).send({ error: 'Internal Server Error' });
     }
-})
+});
+
 
 
 app.post("/courses/add" , async (req , res)=>{
