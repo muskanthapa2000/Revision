@@ -1,0 +1,139 @@
+// ............................................. var .........................................
+     function scope-> When a variable is declared inside a function, it is only accessible within that function and cannot be used outside that function. 
+        const data =()=>{
+            var m = "aaa";
+            console.log(m);
+        }
+         data();
+        // console.log(m); // print only within the function 
+        console.log(a); // print undefined can be access before initalization 
+        var a = "muskan"; // var can be reassigned and redeclared 
+        var a = "thapa";
+        a = "vishu";
+
+        console.log(a);
+
+// ............................................. let .........................................
+   block scope -> A variable when declared inside the if or switch conditions or inside for or while loops, are accessible within that particular condition or loop. 
+        const dd = (love = true) => {
+            if (love) {
+                var n = "aaa";
+                console.log(n);
+            }
+            }
+
+        dd();
+        
+        // console.log(name); // shows error cannot access before initalization 
+        let name = "muskan"; // let can be reassigned but not redeclared 
+        name = "thapa";
+        console.log(name);
+
+// ............................................. const .........................................
+         //  block scope 
+        //  console.log(b) // shows error cannot access before initalization  
+        const b = "muskan";// const can not be reassigned and redeclared 
+        // b = "aa";
+        console.log(b)
+
+//..............................................CLOSURE..........................................
+A closure is a function that "closes over" or captures the lexical scope in which it is defined, allowing it to access and manipulate variables from that enclosing scope even after the outer function has finished executing. Closures are a powerful tool for maintaining state, data encapsulation, and creating modular code.
+
+function test (){
+    let a =300;
+    let fun = function inner(){
+        a=10;
+        return a*a;
+    }
+    a=10;
+    return fun;
+}
+
+let inner = test();
+console.log(inner());
+
+//  output 100
+
+// ............................... call function ......................................
+ The call method is used to invoke a function with a specified this value and a set of arguments. It allows you to pass arguments to a function as individual arguments, rather than as an array.
+ if we want to call similar function in another function (function write within the function)
+
+    let userDetail = {
+        name : "muskan",
+        age : 24,
+        city : "ludhiana",
+         printDetail: function(){
+            console.log(this);
+         }
+    }
+    userDetail.printDetail();
+
+    let userDetail1 = {
+        name : "vishu",
+        age : 21,
+        city : "ludhiana",
+    }
+    userDetail.printDetail.call(userDetail1);
+
+//......................................... apply ............................................ 
+ The apply method is similar to call, but it allows you to pass arguments to a function as an array. This can be useful when the number of arguments is dynamic or unknown.
+ used when a function is called outside the every function , acception array as a parameter 
+
+        let printDetail = function(country, profession) {
+            console.log(this.name + " " + country + " " + profession);
+        }
+
+        let userDetail2 = {
+            name: "muskan",
+            age: 24,
+            city: "ludhiana",
+        }
+        printDetail.apply(userDetail2, ["india", "engii"]);
+
+        let userDetail3 = {
+            name: "vishu",
+            age: 21,
+            city: "ludhiana",
+        }
+        printDetail.apply(userDetail3, ["india", "developer"]);
+
+
+
+//......................................... bind ............................................ 
+ The bind method is used to create a new function with a specified this value and partially pre-filled arguments. It does not immediately invoke the function; instead, it returns a new function that can be invoked later.
+ craetes a copy of the function and store data into that 
+let printDetails = function(country , profession) {
+            console.log(this.name + " " + country + " " + profession);
+        }
+
+        let userDetail4 = {
+            name: "muskan",
+            age: 24,
+            city: "ludhiana",
+        }
+        let newuser = printDetails.bind(userDetail4, "india", "engii");
+        newuser();
+        console.log(newuser())
+
+        let userDetail5 = {
+            name: "vishu",
+            age: 21,
+            city: "ludhiana",
+        }
+       let newUser1 =  printDetails.bind(userDetail5,"india", "developer");
+       newUser1();
+       console.log(newUser1())
+
+//    ................................................. Hoisting ...........................
+
+ Hoisting is a JavaScript mechanism that moves variable and function declarations to the top of their containing scope during the compilation phase. In simpler terms, it means that you can use variables and functions before they are declared in your code, and they will be "hoisted" to the top of their respective scope.
+It's important to note that hoisting only moves the declarations themselves, not the assignments or initializations. This can lead to unexpected behavior if you're not aware of how hoisting works.
+  you can call the function even before its actual declaration in the code.
+     
+hoistedFunction(); // Output: "Hello, I'm a hoisted function!"
+
+        function hoistedFunction() {
+        console.log("Hello, I'm a hoisted function!");
+        }
+ 
+
