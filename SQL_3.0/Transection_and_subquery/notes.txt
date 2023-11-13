@@ -1,0 +1,19 @@
+transection RULES : 
+        ATOMICITY : all or nothing 
+        CONSISTENCY : total maount will remain same before and after transection 
+        ISOLATION : paraller transection , no data passing no intersection 
+        DURABILITY : work after transection (dosnt break)
+
+
+SUB-QUERY : 
+    SCELA SUB QUERY:
+        select * from EMPLOYES where sallery >=(select AVG(sallery) from EMPLOYES)   (find employess whose sallery greater then average)
+
+    MULTI ROW SUB_QUERY : 
+             select * from EMPLOYES where sallery >=(select AVG(sallery) from EMPLOYES where department_id= EMPLOYES.department_id)   
+             // (find employess whose sallery greater then average in department )
+
+
+
+---> rollback : will remove all the data 
+     commit : will stop remove data to rollback (till this point everything is correct)
