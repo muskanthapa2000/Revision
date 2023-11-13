@@ -1,0 +1,369 @@
+# useReducer 
+
+The useReducer Hook is similar to the useState Hook. It allows for custom state logic. If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.     
+"useReducer" is primarily used for managing state in functional components. It's especially useful when you have state logic that involves multiple actions or when you need to handle complex state transitions.
+
+import { useReducer } from 'react';
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const action = {
+    type: 'ActionType'
+  };
+
+  return (
+    <button onClick={() => dispatch(action)}>
+      Click me
+    </button>
+  );
+
+ # example : 
+ When using "useReducer," you provide a reducer function. This function takes the current state and an action as arguments and returns the new state. The action typically includes a type and may also include additional data needed to update the state.
+
+  ........................................................................................................................................................................
+# what is redux and its principle ..?
+
+Redux is a popular state management library used primarily with React, although it can be used with other JavaScript libraries and frameworks as well. It helps manage the state of a JavaScript application in a predictable and centralized way. Redux is based on several key principles:
+Single Source of Truth: In a Redux application, the entire application state is stored in a single JavaScript object, known as the "store." This ensures that there is one central place to access and modify the application's state, making it easier to understand and maintain.
+State is Read-Only: In Redux, the state is immutable, meaning you cannot directly modify it. Instead, you create a new state object whenever you need to make changes. This immutability ensures that state changes are predictable and traceable.
+Changes are Made with Pure Functions: To modify the state, you dispatch actions to the Redux store. Actions are plain JavaScript objects that describe what should change in the state. State changes are performed by pure functions called "reducers." Reducers take the current state and an action as input and return a new state based on the action. 
+They are pure functions because they do not have side effects and produce the same output for the same input.
+Action-Reducer Interaction: Actions are dispatched to reducers, which determine how the state should be updated based on the action's type and payload. Reducers then return a new state object with the desired changes.
+Predictable State Updates: Because the state changes are determined by the reducers and the actions they receive, Redux provides a predictable and traceable way to update the application's state. This predictability makes it easier to debug and understand how the application behaves.
+Time-Travel Debugging: Redux allows for time-travel debugging, which means you can step back and forth through the application's state changes. This feature is especially valuable for debugging complex applications.
+Middleware: Redux provides middleware support, which allows you to intercept actions before they reach the reducers. Middleware can be used for tasks like logging, making asynchronous API calls, or handling side effects in a controlled manner.
+Ecosystem and DevTools: Redux has a robust ecosystem with a wide range of libraries and tools, including the Redux DevTools extension, which provides a graphical interface for inspecting and debugging your application's state changes.
+Overall, Redux helps manage the state of a JavaScript application in a clear and organized way. It promotes good practices, such as immutability, predictability, and separation of concerns, making it easier to develop and maintain complex applications. While Redux can introduce some additional boilerplate code compared to simpler state management solutions,
+ it becomes especially beneficial as your application grows in complexity and requires more centralized control over state.
+
+# Core Concepts of Redux:
+Store: The store is a single JavaScript object that represents the state of your application. It's the centralized place where all the data for your app is stored. The store is read-only, and state changes are triggered by dispatching actions.
+Actions: Actions are plain JavaScript objects that describe what happened in your application. They carry a type property that specifies the type of action and may include additional data. Actions are typically created by action creators.
+Reducers: Reducers are functions that specify how the state changes in response to an action. They take the current state and an action as arguments and return a new state. Reducers are pure functions, meaning they produce the same output for the same input and have no side effects.
+Dispatch: Dispatching an action is the only way to change the state in Redux. You dispatch actions to the store, and the reducers handle these actions to update the state.
+Selectors: Selectors are functions that extract specific pieces of data from the state. They provide a way to access the data stored in the Redux store.
+
+
+# how state, gets updated internally inside React at the moment, using useState, useReducer....?
+useState:
+Initialization: When you use useState, you provide an initial state value as an argument to the hook, like this: const [state, setState] = useState(initialValue);.
+State Update: To update the state, you call the setState function with a new value. React will then re-render the component, and the new state will be used.
+Functional Updates: You can also use a functional update to update the state based on the previous state. This is useful when the new state depends on the current state. Here's an example: // Using a functional update
+setState(prevState => prevState + 1);
+
+useReducer:
+Initialization: When you use useReducer, you provide an initial state and a reducer function as arguments, like this: const [state, dispatch] = useReducer(reducer, initialState);.
+State Update: To update the state, you dispatch an action using the dispatch function. The action is an object with a type property (a string) and optionally a payload property. The reducer function receives the current state and the action, and it returns a new state based on the action type and payload.
+Reducer Function: The reducer function is responsible for determining how the state should change based on the action. It must be a pure function, meaning it should not have side effects and should return the same output for the same input. 
+Functional Updates: Like with useState, you can also use functional updates with useReducer. Here's an example: dispatch(prevState => ({ ...prevState, count: prevState.count + 1 }));
+
+
+# History of Redux/ Flux Architecture / MVC......?
+
+The history of Redux, Flux architecture, and the Model-View-Controller (MVC) design pattern in the context of web development is quite interesting and has evolved over the years. Here's a brief overview of each:
+Model-View-Controller (MVC):
+Origins: The MVC design pattern has roots in software engineering and was initially developed in the late 1970s at Xerox PARC (Palo Alto Research Center Incorporated). It was created to improve the organization of code in graphical user interfaces.
+Adoption: MVC gained popularity over time and was widely adopted in various programming languages and frameworks, including Smalltalk, Java, and later in web development.
+
+Components:
+Model: Represents the application's data and business logic.
+View: Displays the data to the user and handles user input.
+Controller: Acts as an intermediary between the Model and View, handling user input, updating the Model, and updating the View accordingly.
+Web Development: In web development, MVC has been adapted and implemented in various ways across different programming languages and frameworks. For example, Ruby on Rails and ASP.NET MVC are web frameworks that adhere to the MVC pattern.
+
+Flux Architecture:
+Introduction: Flux is an architectural pattern created by Facebook to manage the flow of data in React applications. It was introduced to address some of the challenges posed by complex data flow and state management in large-scale applications.
+
+Components:
+Dispatcher: Acts as a central hub for managing data flow. It receives actions and dispatches them to the appropriate stores.
+Store: Stores hold and manage the application's state and logic. They update themselves in response to actions dispatched by the Dispatcher.
+View: React components that render the UI based on the data in the Stores and send actions to the Dispatcher.
+Unidirectional Data Flow: Flux enforces a unidirectional data flow, which means data flows in a single direction, making it easier to reason about state changes.
+
+Popular Implementations: While Facebook introduced Flux, several popular libraries and implementations, such as Redux and Fluxxor, have been built on the Flux architecture.
+
+Redux:
+Origins: Redux is a state management library for React applications created by Dan Abramov and Andrew Clark. It draws inspiration from Flux but simplifies the architecture and promotes predictability and single-source-of-truth principles.
+
+Principles:
+Single Source of Truth: The entire application state is stored in a single JavaScript object called the "store."
+Read-Only State: State is immutable; you dispatch actions to modify it.
+Changes by Pure Functions: State changes are determined by pure reducer functions.
+Redux Ecosystem: Redux has a rich ecosystem, including middleware, tools like the Redux DevTools, and extensions for use with other frameworks beyond React.
+
+Wide Adoption: Redux gained widespread adoption in the React community and beyond, becoming the de facto state management solution for many JavaScript applications.
+In summary, Redux and Flux architecture emerged as solutions to manage state in complex web applications, with Redux simplifying and refining the ideas of Flux. MVC, on the other hand, has a longer history and has been adapted in various ways across different programming paradigms, including web development. Each of these patterns and libraries has contributed to shaping the landscape of modern web development and state management.
+
+.............................................................................................................................................
+
+# React - Redux 
+
+React Redux is the official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.
+Installation:
+npm install react-redux
+Components and hooks
+        Provider
+        useDispatch
+        useSelector
+        Provider
+        Docs
+
+React Redux provides <Provider />, which makes the Redux store available to the rest of your app:
+    import { Provider } from 'react-redux'
+    import store from './store'
+
+    const rootElement = document.getElementById('root')
+    ReactDOM.render(
+    <Provider store={store}> //similar to context API
+        <App />
+    </Provider>,
+    rootElement
+    )
+
+useDispatch
+This hook returns a reference to the dispatch function from the Redux store. You may use it to dispatch actions as needed.
+
+const dispatch = useDispatch()
+Note: like in React's useReducer, the returned dispatch function identity is stable and won't change on re-renders (unless you change the store being passed to the <Provider>, which would be extremely unusual).
+
+example
+import React from 'react'
+import { useDispatch } from 'react-redux'
+
+// action type (actionTypes.js)
+const INCREMENT_COUNTER = "INCREMENT_COUNTER";
+
+// action creator (action.js)
+const incrementCounter = () => {
+    return { 
+        type: INCREMENT_COUNTER
+    }
+}
+
+export const CounterComponent = ({ value }) => {
+  const dispatch = useDispatch()
+
+  const handleIncrementCounter = () => {
+      const action = incrementCounter()
+      dispatch( action )
+  }
+
+  return (
+    <div>
+      <span>{value}</span>
+      <button onClick={handleIncrementCounter}>
+        Increment counter
+      </button>
+    </div>
+  )
+}
+useSelector
+Allows you to extract data from the Redux store state, using a selector function.
+
+const result = useSelector(selector: Function) // Function means the accepted type for the argument
+The selector will be called with the entire Redux store state as its only argument. The selector will be run whenever the function component renders (unless its reference hasn't changed since a previous render of the component so that a cached result can be returned by the hook without re-running the selector).
+
+useSelector() will also subscribe to the Redux store, and run your selector whenever an action is dispatched.
+
+example
+
+store.getState()
+// { todos: [ ... ], counter: }
+
+const TodoList = () => {
+  const todos = useSelector((state) => state.todos);
+    //   todos
+  return (
+    <div>
+      {todos.map((item) => (
+        <div key={item.id}>{item.title}</div>
+      ))}
+    </div>
+  );
+};
+
+export { TodoList };
+
+useSelector
+The selector may return any value as a result, not just an object. The return value of the selector will be used as the return value of the useSelector() hook.
+When an action is dispatched, useSelector() will do a reference comparison of the previous selector result value and the current result value. If they are different, the component will be forced to re-render. If they are the same, the component will not re-render.
+useSelector() uses strict === reference equality checks by default
+You may call useSelector() multiple times within a single function component. Each call to useSelector() creates an individual subscription to the Redux store. Dispatched actions that causes multiple useSelector()s in the same component to return new values should only result in a single re-render.
+
+
+
+...........................................................................................................................................
+
+
+# combineReducers:
+It is important to keep our code structured, so when the app becomes larger it is quite common to separate the reducers and action based on their functionality or other factors:
+For example you can have
+
+auth reducers
+user reducers
+admin reducers
+
+ # Chat G
+ combineReducers is a utility function provided by the Redux library in the context of managing state in a React application. It's commonly used for structuring the state of a Redux store, especially when your application has multiple slices of state or when it's developed by different teams working on different parts of the state.
+
+Here's an explanation of combineReducers for interview purposes:
+1. Purpose:
+combineReducers is used to combine multiple reducer functions into a single reducer function. Each individual reducer function handles a specific slice of the application state.
+
+2. Multiple Slices of State:
+In a Redux store, the state is often divided into different "slices," with each slice representing a different part of the application state. For example, you might have separate slices for user data, authentication status, shopping cart items, etc.
+
+3. Reducer Function:
+A reducer is a pure function that takes the current state and an action and returns a new state based on that action. It specifies how the state should change in response to actions.
+
+4. Combining Reducers:
+combineReducers takes an object as an argument, where the keys represent the state slices, and the values are the reducer functions responsible for managing those slices. It returns a new reducer function that combines these reducers into one.
+
+import { combineReducers } from 'redux';
+import userReducer from './userReducer';
+import cartReducer from './cartReducer';
+
+const rootReducer = combineReducers({
+  user: userReducer,   // Manages user-related state
+  cart: cartReducer,   // Manages shopping cart state
+});
+export default rootReducer;
+
+5. State Tree Structure:
+When you use combineReducers, it creates a state tree where each slice is nested under its corresponding key. In the example above, the state tree would look like this:
+javascript
+{
+  user: /* user state */,
+  cart: /* cart state */,
+}
+
+6. Handling Actions:
+When an action is dispatched, each individual reducer specified in combineReducers is called with its corresponding slice of state. The reducers decide how to update their own slice of state based on the action.
+
+7. Simplicity and Maintainability:
+combineReducers helps in keeping your Redux codebase organized and maintainable, especially in larger applications where managing all state in a single reducer becomes impractical.
+
+8. Exporting Root Reducer:
+Typically, the combined reducer created using combineReducers is used as the root reducer when creating your Redux store.
+Example:
+javascript
+Copy code
+import { createStore } from 'redux';
+import rootReducer from './reducers'; // The combined reducer
+
+const store = createStore(rootReducer);
+
+............................................................................................................................................
+# Redux Thunk 
+
+So far we have done synchronous actions.
+
+But vast majority of web applications fetch data with asynchronous functions.
+
+Its much more common that we call an action creator we need to fetch some information through API or some asynchronous action, and only when that request resolves are we ready to pass the action into our reducers.
+
+So how do we handle this asynchronous request?
+
+That is where redux-thunk comes into the picture.
+The purpose of redux thunk is to give direct control over the dispatch method.
+the dispatch method can be thought of as anything that happens after the action creators.
+redux thunk
+What redux-thunk allows you to do is that, instead of returning objects in action creators, you can start to return functions. When it is a function, redux thunk takes care of it.
+
+Middleware is software that takes an incoming request, processes it, and passes it on to the next piece of middleware in the chain.
+
+In this case, based on a type of action, we call a middleware, once its resolved or rejected, we can do the appropriate action and manage state.
+
+writing our own thunk middleware
+// if the action is a function, we will invoke the action
+// otherwise we will continue with the middlewares / reducer
+const thunkMiddleware = (store) => (next) => (action) => {
+  return typeof action === "function"
+    ? action(store.dispatch, store.getState)
+    : next(action);
+};
+
+
+# Chat G 
+In Redux, a "thunk" is a middleware that allows you to write asynchronous logic in your Redux actions. The primary purpose of using thunks in Redux is to handle asynchronous operations, such as making API requests, before dispatching actions to update the Redux store. Thunks provide a way to manage side effects and asynchronous code in a clean and organized manner. Here's a breakdown of the purposes and benefits of using thunks in Redux:
+
+Asynchronous Actions:
+
+Redux by itself is designed for handling synchronous actions, which means actions that immediately update the state. However, in many real-world applications, you need to deal with asynchronous operations like fetching data from an API or performing complex computations that take time.
+Thunks enable you to write action creators that can dispatch actions at a later time, once the asynchronous operation is complete.
+Separation of Concerns:
+
+Thunks help maintain the separation of concerns between your application's state management (Redux) and side effects (like API calls). Instead of mixing asynchronous code directly within your components, you can encapsulate it within thunks, keeping your UI code cleaner and more focused.
+Complex Logic:
+
+Thunks are not limited to just making API requests. They can encapsulate any complex logic that needs to happen before dispatching an action, such as handling caching, transforming data, or making multiple API calls in a sequence.
+Easier Testing:
+
+Thunks can be tested more easily compared to components that include asynchronous logic. You can write unit tests for your thunks by mocking the store and API calls, allowing you to ensure that your async actions work as expected.
+Middleware Chain:
+
+Thunks are part of the middleware chain in Redux. This means you can compose multiple middleware functions to handle different aspects of your application's logic in a modular and extensible way.
+Redux DevTools Integration:
+
+Thunks work seamlessly with Redux DevTools, a popular browser extension for debugging Redux applications. This allows you to track the flow of asynchronous actions and inspect the state changes easily.
+Here's a simple example of a Redux thunk in action:
+
+javascript
+Copy code
+// Redux Thunk Action Creator
+const fetchUserData = (userId) => {
+  return async (dispatch) => {
+    dispatch({ type: 'FETCH_USER_REQUEST' });
+
+    try {
+      const response = await fetch(`/api/users/${userId}`);
+      const data = await response.json();
+      dispatch({ type: 'FETCH_USER_SUCCESS', payload: data });
+    } catch (error) {
+      dispatch({ type: 'FETCH_USER_FAILURE', payload: error.message });
+    }
+  };
+};
+In this example, fetchUserData is a Redux thunk that dispatches actions for fetching user data from an API. It dispatches different actions at different stages of the asynchronous operation.
+
+To use thunks in your Redux application, you typically need to integrate a middleware like redux-thunk. This middleware intercepts action creators that return functions (thunks) instead of plain objects and executes them with the dispatch and getState functions, allowing you to handle asynchronous operations within your actions.
+
+........................................................................................................................................................
+# Redux Middlewares 
+
+Middleware in Redux:
+Middleware is a concept in Redux that allows you to intercept and process actions before they reach the reducer. It also lets you perform additional actions after an action is dispatched.
+Middleware Chain:
+Redux middleware operates in a chain. When an action is dispatched, it passes through the middleware chain, where each middleware has the opportunity to modify or react to the action before it reaches the reducer.
+Common Use Cases:
+Middleware is often used for tasks such as logging, handling asynchronous operations, routing, authentication, and more.
+It's an ideal place to handle side effects that shouldn't be handled directly in action creators or reducers.
+
+// Custom Middleware
+const loggerMiddleware = (store) => (next) => (action) => {
+  console.log('Action:', action);
+  console.log('Current State:', store.getState());
+  
+  // Call the next middleware in the chain or the reducer
+  const result = next(action);
+
+  console.log('Next State:', store.getState());
+  console.log('---'); // Divider for clarity
+
+  return result;
+};
+
+export default loggerMiddleware;
+Here's a breakdown of this custom middleware:
+loggerMiddleware is a function that takes the Redux store's dispatch and getState functions as arguments.
+It returns another function that takes next, which is a reference to the next middleware in the chain or the Redux store's dispatch function.
+Inside this function, we log the action, the current state before the action is processed, and the next state after the action is processed.
+We then call next(action) to pass the action to the next middleware or the reducer.
+Finally, we log the next state and return the result from next(action).
+To use this middleware in your Redux application, you would typically apply it when creating your Redux store using the applyMiddleware function:
+
+# 
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers';
+import loggerMiddleware from './middleware/loggerMiddleware';
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));

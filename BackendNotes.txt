@@ -1,0 +1,17 @@
+//    .................................................- What is Node Js? .....................
+Node.js is an open-source, server-side, runtime environment that allows developers to run JavaScript code on the server. It is built on the V8 JavaScript engine, the same engine that powers the Google Chrome browser. Node.js provides an event-driven, non-blocking I/O model, which makes it well-suited for building highly scalable and efficient network applications.
+Here are some key features and concepts associated with Node.js:
+JavaScript on the Server:
+Node.js allows developers to write server-side code using JavaScript. This unifies the development language across the entire stack, from the front end to the back end, making it easier for developers to work on both client and server code.
+Event-Driven and Non-Blocking:
+Node.js is designed around an event-driven architecture, where various events (e.g., incoming requests, data streams) trigger corresponding callbacks. It uses a non-blocking I/O model, meaning that the runtime doesn't wait for I/O operations to complete before moving on to the next task. Instead, it queues up I/O requests and continues processing other tasks, which leads to high concurrency and efficiency.
+NPM (Node Package Manager):
+Node.js comes with npm, a powerful package manager that allows developers to easily install, manage, and share packages and libraries. npm has a vast ecosystem of open-source packages that can be used to extend and enhance Node.js applications.
+Modules
+Node.js uses a modular system, where code is organized into reusable modules. Built-in modules provide essential functionality, and you can create your own modules to keep code organized and maintainable.
+Single-Threaded Event Loop:
+Node.js runs in a single-threaded event loop, but it can handle a large number of concurrent connections. This is achieved through its non-blocking I/O, which allows it to efficiently manage multiple client requests at the same time without creating a new thread or process for each request.
+Cross-Platform:
+Node.js is designed to be cross-platform and can be used on various operating systems, including Windows, macOS, and Linux.
+Use Cases:
+Node.js is particularly well-suited for building real-time applications, such as web servers, chat applications, online gaming, and streaming services. It's also commonly used for building RESTful APIs, microservices, and serverless applications.
