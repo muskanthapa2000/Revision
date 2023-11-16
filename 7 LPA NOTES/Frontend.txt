@@ -185,3 +185,5 @@ Web applications use a client-server architecture where web browsers (clients) r
 Database systems follow a client-server model where database clients request data or perform operations from a database server.
 Email systems operate using client-server architecture, with email clients (such as Outlook) interacting with email servers (such as Exchange).
 Client-server architecture provides a scalable and efficient way to design and implement networked applications, allowing for the separation of concerns between client-side presentation and server-side processing. This architecture is widely used in various domains, including web applications, database systems, and enterprise-level software.
+
+
