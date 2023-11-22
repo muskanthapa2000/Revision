@@ -83,14 +83,14 @@ router.put("/product/:id", authentication ,  async (req, res) => {
     const { name, imagelink, price, stockavailable, comingsoon, category } = req.body;
 
     try {
-        const data = await ProductModel.findByIdAndUpdate(id, {
+        const data = await ProductModel.findByIdAndUpdate({_id : id}, {
             name,
             imagelink,
             price,
             stockavailable,
             comingsoon,
             category
-        }, { new: true });
+        });
 
         if (!data) {
             return res.status(404).json({ message: "Product not found" });
