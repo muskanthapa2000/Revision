@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+
+    </script>
+</head>
+<body>
+    <form id = "sub">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="education">Education:</label>
+        <input type="text" id="education" name="education">
+        
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value="usa">USA</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+        </select>
+        <input type="submit" value="Submit">
+        <div id = "test">
+
+        </div>
+      </form>
+    <script>
+        $(document).ready(function(){
+                $('#name , #education , #country').focus(function(){
+                    $(this).css("background-color" , "pink")
+                    
+                }) // change color of focused value
+
+                $('#name , #education , #country').blur(function(){
+                    $(this).css("background-color" , "")
+                })   // change color after focus ends
+
+                $('#country').change(function(){
+                    $(this).css("background-color" , "red")
+                    var a = $(this).val();
+                    $('#test').html(a);
+                })  // dipaly value in anither div
+
+                $('#name , #education').select(function(){
+                    $(this).css("background-color" , "yellow")
+                }) // chnage color after select some text 
+
+                $('#sub').submit(function(){
+                    $(this).css("background-color" , "orange")
+                }) // chnage color on submit 
+
+
+                $('#sub').submit(function(){
+                    var name = $('#name').val();
+                    var education = $('#education').val();
+                    var country = $('#country').val();
+                    alert("hello" + name + education + country)
+                })
+        })
+    </script>
+</body>
+</html>

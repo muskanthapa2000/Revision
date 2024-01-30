@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+
+    </script>
+</head>
+<body>
+    <div id = "muskan">
+        <h1>MANDY JI</h1>
+        <p>I love u mandy ji</p>
+    </div>
+
+    <div class = "box">
+        <h1>MUSKAN</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa illum cum delectus culpa vero porro facilis corrupti eligendi,
+             commodi saepe numquam atque amet iste distinctio neque quibusdam quod. Veniam, enim!</p>
+    </div>
+    <script>
+        $(document).ready(function(){
+          $('#muskan').css("color" , "pink");
+            
+          $('.box').click(function (){
+            $('.box').css('background-color' , 'black');
+          })
+
+          $('.box').dblclick(function (){
+            $('.box').css('background-color' , 'yellow');
+          })
+
+          $('.box').contextmenu(function (){   // change color on right click
+            $('.box').css('background-color' , 'red');
+          })
+
+          $('.box').mouseenter(function (){   // change color on hover
+            $('.box').css('background-color' , 'blue');
+          })
+
+          $('.box').mouseleave(function (){   // change color on right click
+            $('.box').css('background-color' , 'orange');
+          })
+
+          $('body').keypress(function (){   // change color of body on any key press
+            $(this).css('background-color' , 'orange');
+          })
+
+          $('body').keyup(function (){   // change color of body on any key press
+            $(this).css('background-color' , 'green');
+          })
+
+          $('body').keydown(function (){   // change color of body on not any key press
+            $(this).css('background-color' , 'pink');
+          })
+
+
+
+        })
+    </script>
+    
+</body>
+</html>

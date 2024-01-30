@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "date": "4/1/22",
+      "month": "Jan",
+      "year": 2022,
+      "supplier": "Reliance",
+      "emissions": 1698,
+      "revenue": 203456,
+      "r_e": 120,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "3/1/23",
+      "month": "Jan",
+      "year": 2023,
+      "supplier": "Reliance",
+      "emissions": 1790,
+      "revenue": 245678,
+      "r_e": 137,
+      "yoy_r_e_change": "15%"
+    },
+    {
+      "date": "2/2/22",
+      "month": "Feb",
+      "year": 2022,
+      "supplier": "Reliance",
+      "emissions": 2108,
+      "revenue": 203456,
+      "r_e": 96.5,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "5/2/23",
+      "month": "Feb",
+      "year": 2023,
+      "supplier": "Adani",
+      "emissions": 2205,
+      "revenue": 220000,
+      "r_e": 99.8,
+      "yoy_r_e_change": "3%"
+    },
+    {
+      "date": "6/3/22",
+      "month": "Mar",
+      "year": 2022,
+      "supplier": "Reliance",
+      "emissions": 2251,
+      "revenue": 245647,
+      "r_e": 109.1,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "7/3/23",
+      "month": "Mar",
+      "year": 2023,
+      "supplier": "Adani",
+      "emissions": 2345,
+      "revenue": 287545,
+      "r_e": 122.6,
+      "yoy_r_e_change": "12%"
+    },
+    {
+      "date": "2/4/22",
+      "month": "Apr",
+      "year": 2022,
+      "supplier": "Shaurya Drugs",
+      "emissions": 1602,
+      "revenue": 179853,
+      "r_e": 112.3,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "2/4/23",
+      "month": "Apr",
+      "year": 2023,
+      "supplier": "Adani",
+      "emissions": 1503,
+      "revenue": 195395,
+      "r_e": 130.0,
+      "yoy_r_e_change": "16%"
+    },
+    {
+      "date": "3/5/22",
+      "month": "May",
+      "year": 2022,
+      "supplier": "Orlife Healthcare",
+      "emissions": 3456,
+      "revenue": 464464,
+      "r_e": 134.4,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "4/5/23",
+      "month": "May",
+      "year": 2023,
+      "supplier": "Adani",
+      "emissions": 4634,
+      "revenue": 575747,
+      "r_e": 124.2,
+      "yoy_r_e_change": "-8%"
+    },
+    {
+      "date": "3/6/22",
+      "month": "June",
+      "year": 2022,
+      "supplier": "Orlife Healthcare",
+      "emissions": 3245,
+      "revenue": 464464,
+      "r_e": 143.1,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "4/6/23",
+      "month": "June",
+      "year": 2023,
+      "supplier": "Adani",
+      "emissions": 4634,
+      "revenue": 575747,
+      "r_e": 124.2,
+      "yoy_r_e_change": "-13%"
+    },
+    {
+      "date": "3/7/22",
+      "month": "July",
+      "year": 2022,
+      "supplier": "Rezicure Pharmaceuticals",
+      "emissions": 3543,
+      "revenue": 464464,
+      "r_e": 131.1,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "5/7/23",
+      "month": "July",
+      "year": 2023,
+      "supplier": "Reliance",
+      "emissions": 3487,
+      "revenue": 575747,
+      "r_e": 165.1,
+      "yoy_r_e_change": "26%"
+    },
+    {
+      "date": "3/8/22",
+      "month": "Aug",
+      "year": 2022,
+      "supplier": "Rezicure Pharmaceuticals",
+      "emissions": 5445,
+      "revenue": 643864,
+      "r_e": 118.2,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "5/8/23",
+      "month": "Aug",
+      "year": 2023,
+      "supplier": "Merion Care",
+      "emissions": 5258,
+      "revenue": 689747,
+      "r_e": 131.2,
+      "yoy_r_e_change": "11%"
+    },
+    {
+      "date": "2/9/22",
+      "month": "Sep",
+      "year": 2022,
+      "supplier": "Ruzette Organics",
+      "emissions": 4343,
+      "revenue": 564651,
+      "r_e": 130.0,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "3/9/23",
+      "month": "Sep",
+      "year": 2023,
+      "supplier": "Ruzette Organics",
+      "emissions": 4524,
+      "revenue": 578965,
+      "r_e": 128.0,
+      "yoy_r_e_change": "-2%"
+    },
+    {
+      "date": "6/10/22",
+      "month": "Oct",
+      "year": 2022,
+      "supplier": "Steller Bio Labs",
+      "emissions": 3434,
+      "revenue": 516513,
+      "r_e": 150.4,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "6/10/23",
+      "month": "Oct",
+      "year": 2023,
+      "supplier": "Steller Bio Labs",
+      "emissions": 3332,
+      "revenue": 524535,
+      "r_e": 157.4,
+      "yoy_r_e_change": "5%"
+    },
+    {
+      "date": "10/11/22",
+      "month": "Nov",
+      "year": 2022,
+      "supplier": "Eskos Pharma",
+      "emissions": 3464,
+      "revenue": 546561,
+      "r_e": 157.8,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "10/11/23",
+      "month": "Nov",
+      "year": 2023,
+      "supplier": "Eskos Pharma",
+      "emissions": 3535,
+      "revenue": 576855,
+      "r_e": 163.2,
+      "yoy_r_e_change": "3%"
+    },
+    {
+      "date": "1/12/22",
+      "month": "Dec",
+      "year": 2022,
+      "supplier": "Adani",
+      "emissions": 2324,
+      "revenue": 343535,
+      "r_e": 147.8,
+      "yoy_r_e_change": null
+    },
+    {
+      "date": "2/12/23",
+      "month": "Dec",
+      "year": 2023,
+      "supplier": "Reliance",
+      "emissions": 2452,
+      "revenue": 354646,
+      "r_e": 144.6,
+      "yoy_r_e_change": "-2%"
+    }
+  ]
+}

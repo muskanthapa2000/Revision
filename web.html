@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Transition Example</title>
+  <style>
+    /* Define the initial state of the text */
+    p {
+      font-size: 20px;
+      text-decoration: underline;
+      text-transform: uppercase;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Define the hover state and the transition property */
+    p:hover  {
+      transform: translateY(-100%);
+      color : red;
+    }
+
+    @media screen and (min-width: 600px) {
+  p {
+    font-size: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="text-container">
+    <p>This is the original text.</p>
+  </div>
+
+</body>
+</html>
