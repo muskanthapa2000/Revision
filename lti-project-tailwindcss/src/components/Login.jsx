@@ -1,61 +1,98 @@
 import React, { useState } from 'react';
-import { Input, Button } from 'antd';
 import axios from 'axios';
+import { useToast } from '@chakra-ui/react';
+import './Login.css';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({ email: '', password: '' });
+  const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'password') {
-      setPassword(value);
-    }
+    setUser({ ...user, [name]: value });
   };
-  console.log(email , password , "email and password");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/users', { email, password });
-      setEmail(response.email);
-      setPassword(response.password);
+      const { email, password } = user;
+      const signupResponse = await axios.get(`http://localhost:3000/signup?email=${email}`);
+      const existingUser = signupResponse.data[0];
+
+      if (!existingUser) {
+        toast({
+          position : "top",
+          title: 'Error',
+          description: 'Email or Password is wrong, please try again',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+        return;
+      }
+      if (existingUser.password !== password) {
+        toast({
+          position : "top",
+          title: 'Error',
+          description: 'Email or Password is Wrong. Please try again.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+        return;
+      }
+      toast({
+        position : "top",
+        title: 'Success',
+        description: 'Login successful',
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
+      setUser({ email: '', password: '' });
     } catch (err) {
-      console.log(err);
+      console.error('Error:', err);
     }
   };
 
+  const isSubmitDisabled = user.email === '' || user.password === '';
+
   return (
-    <form className='flex justify-center' style={{ backgroundColor: '#F8F8FF' }} onSubmit={handleSubmit}>
-      <div className='w-96 m-20 bg-white shadow-md border-solid border-1 border-light-grey rounded-md p-6'>
-        <h1 className='text-3xl font-bold text-center'>Login in to your account</h1>
-        <div className='mt-6'>
-          <label className='mt-20'>Email</label>
-          <Input
+    <form className='form' onSubmit={handleSubmit}>
+    <div className='container'>
+      <h1 className='title'>Login in to your Account</h1>
+      <div className='mt-6'>
+        <label className='label'>Email</label>
+        <div>
+          <input
             placeholder='Enter your email'
             type='text'
+            value={user.email}
             name='email'
-            value={email}
             onChange={handleChange}
+            className='input'
           />
         </div>
-        <div className='mt-6'>
-          <label>Password</label>
-          <Input
+      </div>
+      <div className='mt-6'>
+        <label className='label'>Password</label>
+        <div>
+          <input
             placeholder='Enter password'
             type='password'
             name='password'
-            value={password}
+            value={user.password}
             onChange={handleChange}
+            className='input'
           />
         </div>
-        <Button block className='mt-6' style={{ backgroundColor: '#002D62', color: 'white' }}>
-          Submit
-        </Button>
       </div>
-    </form>
+      <button block className={`mt-6 button ${isSubmitDisabled ? 'button-disabled' : ''}`} disabled={isSubmitDisabled}>
+        Sign in
+      </button>
+    </div>
+  </form>
+  
   );
 }
 
