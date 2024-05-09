@@ -13,17 +13,22 @@
     background-color: black ;
     border-radius: 2px !important;
   }
+  .searchInput > div > span > span > span > button:hover {
+    background-color: black !important;
+    border-radius: 2px !important;
+}
 
-  .searchInput > div > span > span {
-    border-radius: 2px;
-  }
+.searchInput > div > span > span > input:hover {
+  border: 1px solid #A6BCC6 !important;
+}
+
 
   .container {
     padding: 30px 14px;
     width: 30%;
     background: #fafbfa;
     border: 1px solid rgba(167, 188, 197, 0.20);
-    height: 100vh;
+    height: 100vh !important;
   }
   
   .filterSection {
@@ -42,11 +47,25 @@
   }
   
   .topicsMenu {
-    margin-top: 22px;
+    margin-top: 22px;  
+  }
+  .ant-menu-submenu-title , .ant-menu-title-content , .ant-menu-submenu-arrow , .ant-menu-item-group{
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .searchInput > div > span > span {
+    border-radius: 2px !important;
+  }
+
+  .ant-menu-title-content {
+    color: #525a5c !important;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .topicsMenu > div > div > div  {
-    color: #525a5c;
+    color: #525a5c !important;
     font-size: 16px;
     font-weight: 700;
     background-color: white;
