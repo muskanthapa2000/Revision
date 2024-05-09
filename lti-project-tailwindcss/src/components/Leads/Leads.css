@@ -1,0 +1,76 @@
+
+.Topics ul > li > div > span {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .Topics ul:hover {
+    background-color: transparent !important;
+  }
+
+  .searchInput > div > span > span >  span > button {
+    background-color: black ;
+    border-radius: 2px !important;
+  }
+
+  .searchInput > div > span > span {
+    border-radius: 2px;
+  }
+
+  .container {
+    padding: 30px 14px;
+    width: 30%;
+    background: #fafbfa;
+    border: 1px solid rgba(167, 188, 197, 0.20);
+    height: 100vh;
+  }
+  
+  .filterSection {
+    padding: 0px;
+  }
+  
+  .filterTitle {
+    color: #525a5c;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .searchInput {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .topicsMenu {
+    margin-top: 22px;
+  }
+
+  .topicsMenu > div > div > div  {
+    color: #525a5c;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: white;
+  }
+
+  .topicsMenu > div > div  {
+    background-color: white;
+  }
+  
+  .filterButton {
+    border-radius: 6px;
+    background: #024;
+    margin-top: 22px;
+    color: white;
+    width: 100%;
+    height: auto;
+    padding: 8px 40px;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .filterButtonText {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+  
